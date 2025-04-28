@@ -11,3 +11,4 @@
 5. check pip list to verify installation
 6. python manage.py migrate then python manage.py makemigrations
 7. python manage.py runserver
+8. http://127.0.0.1:8000/ to run the Project
