@@ -1,4 +1,9 @@
 # Ecommerce_web
++ please make sure that you have the latest python version installed before hand you can check this by 
++ python --version 
++ if nothing shows up install python first globally 
++ make sure extensions are installed in your ide esp- python and python debugger
+
 1. cd E:\path\to\your\new_folder
 2. python -m venv venv
 3. .\venv\Scripts\Activate.ps1
