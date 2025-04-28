@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Swift Cart - About us</title>
+
+  <style media="screen">
+    .footer{
+      position: fixed;
+    }
+  </style>
+</head>
+
+<body>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #dad0d0, #1565c0);
+  }
+</style>
+  {%if request.user.is_authenticated%}
+    {% include "ecom/customer_navbar.html" %}
+  {%else%}
+    {% include "ecom/navbar.html" %}
+  {%endif%}
+  <br><br><br>
+<h3 style="text-align:center;">“Fontend , Backend : Arjun Sharma.” </h3>
+<h3 style="text-align:center;">“Emotional Supoort : Maanveer Singh.” </h3>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  {% include "ecom/footer.html" %}
+</body>
+
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swift Cart – Customer Signup</title>
+  <style>
+    /* page background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #dad0d0, #1565c0);
+    }
+
+    /* center-box */
+    .box {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: 0.25s;
+    }
+
+    .box h1 {
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    /* muted text */
+    .box .text-muted {
+      color: #f0f0f0 !important;
+      margin-bottom: 24px;
+    }
+
+    /* visible labels */
+    .box label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 4px;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* inputs */
+    .box input[type="text"],
+    .box input[type="password"],
+    .box input[type="file"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 24px;
+      background: none;
+      color: #ffffff;
+      text-align: center;
+      outline: none;
+      transition: 0.25s;
+    }
+    .box input:focus {
+      border-color: #a7c4d4;
+    }
+
+    /* placeholder color */
+    .box input::placeholder {
+      color: #ffffff;
+      opacity: 1;
+    }
+    .box input:-ms-input-placeholder { color: #ffffff; }
+    .box input::-ms-input-placeholder { color: #ffffff; }
+
+    /* submit button */
+    .box input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #2a5c8a;
+      border-radius: 24px;
+      background: none;
+      color: #ffffff;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .box input[type="submit"]:hover {
+      background: #2a5c8a;
+    }
+  </style>
+</head>
+<body>
+  {% include "ecom/navbar.html" %}
+
+  <div class="container">
+    <div class="box">
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <h1>Customer Signup</h1>
+        <p class="text-muted">Please enter your details to create an account!</p>
+
+        <label for="id_first_name">First Name</label>
+        {% render_field userForm.first_name id="id_first_name" class="form-control" placeholder="First Name" %}
+
+        <label for="id_last_name">Last Name</label>
+        {% render_field userForm.last_name id="id_last_name" class="form-control" placeholder="Last Name" %}
+
+        <label for="id_username">Username</label>
+        {% render_field userForm.username id="id_username" class="form-control" placeholder="Username" %}
+
+        <label for="id_password1">Password</label>
+        {% render_field userForm.password id="id_password" class="form-control" placeholder="Password" %}
+
+        <label for="id_address">Address</label>
+        {% render_field customerForm.address id="id_address" class="form-control" placeholder="Address" %}
+
+        <label for="id_mobile">Mobile</label>
+        {% render_field customerForm.mobile id="id_mobile" class="form-control" placeholder="Mobile" %}
+
+        <label for="id_profile_pic">Profile Picture</label>
+        {% render_field customerForm.profile_pic id="id_profile_pic" class="form-control" placeholder="Profile Picture" %}
+
+        <input type="submit" value="Create Account">
+      </form>
+    </div>
+  </div>
+
+  {% include "ecom/footer.html" %}
+</body>
+</html>
+

@@ -1,0 +1,384 @@
+<html>
+{% load static %}
+<head>
+  <title>SwiftCart - Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+<style>
+
+body {
+    background-color: linear-gradient(to right, #dad0d0, #1565c0)
+}
+
+#navbar {
+  background-color: #2a5c8a;
+  color: rgba(212, 206, 206, 0.925);
+}
+.row1 {
+  padding-top: 10px;
+  padding-right: 50px;
+}
+.row2 {
+  padding-bottom: 20px;
+}
+.navbar-input {
+  padding: 11px 16px;
+  border-radius: 2px 0 0 2px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+.poppins-semibold {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.navbar-button {
+  background-color: #a7c4d4;
+  border: 1px solid #a7c4d4;
+  border-radius: 0 2px 2px 0;
+  color: #565656;
+  padding: 10px 0;
+  height: 44px;
+  cursor: pointer;
+}
+.cart-button {
+  background-color: #476f95;
+  box-shadow: 0 4px 4px rgba(0,0,0,.23) inset, inset 1px 1px 0 hsla(0,0%,100%,.2);
+  padding: 10px 0;
+  text-align: center;
+  height: 41px;
+  border-radius: 2px;
+  font-weight: 500;
+  width: 120px;
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  outline: none;
+}
+.cart-button:hover {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer
+}
+.cart-svg {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.item-number {
+  border-radius: 3px;
+  background-color: rgba(71,111,149,.973);
+  height: 20px;
+  padding: 3px 6px;
+  font-weight: 500;
+  display: inline-block;
+  color: #a3b7ca;
+  line-height: 12px;
+  margin-left: 10px;
+}
+.item-number:hover {
+  color: #fff;
+  cursor: pointer
+}
+.upper-links {
+  display: inline-block;
+  padding: 0 11px;
+  line-height: 23px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: inherit;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.dropdown:hover {
+  background-color: #d1dbe4;
+}
+.dropdown:hover .links {
+  color: #020202;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #d1dbe4;
+  color: #dad0d0;
+  border: none;
+  box-shadow: 0 4px 8px -3px #555;
+  margin: 0; 
+  padding: 0;
+  min-width: 160px;
+}
+.links {
+  color: #fff;
+  text-decoration: none;
+}
+.links:hover {
+  color: #fff;
+}
+.profile-links {
+  display: block;
+  padding: 8px 20px;
+  color: #2a5c8a !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.profile-links:hover {
+  background: #a7c4d4;
+  text-decoration: none;
+}
+.logout-btn {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 8px 20px;
+  color: #2a5c8a !important;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: #a7c4d4;
+}
+.largenav {
+  display: none;
+}
+.smallsearch {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .largenav {
+    display: block !important;
+  }
+  .smallsearch {
+    margin: 0;
+  }
+}
+
+/* ---------- PRODUCT SHOWCASE STYLES ---------- */
+.product-grid {
+    padding: 40px 20px;
+    background: linear-gradient(to right, #dad0d0, #1565c0);
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 250px;
+    object-fit: contain;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.product-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    font-weight: 600;
+    color: #2a5c8a;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    color: #476f95;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.product-description {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.add-to-cart-btn {
+    background: #2a5c8a;
+    color: white !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-decoration: none !important;
+    display: block;
+}
+
+.add-to-cart-btn:hover {
+    background: #1a4468;
+    transform: scale(1.05);
+}
+
+.section-heading {
+    color: #fff;
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar" style="font-family: 'Poppins', sans-serif;">
+  <div class="container">
+    <div class="row row1">
+      <ul class="largenav pull-right">
+        <li class="upper-links">
+          <a class="links poppins-semibold" href="{% url 'my-order' %}" style="font-weight:700;">
+            Orders
+          </a>
+        </li>
+        <li class="upper-links dropdown">
+          <a class="links poppins-semibold" href="#" style="font-weight:700;">
+            Profile
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="profile-links" href="/my-profile">
+                <i class="fa fa-user"></i> My Profile
+              </a>
+            </li>
+            <li>
+              <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">
+                  <i class="fa fa-sign-out"></i> Logout
+                </button>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row row2">
+      <div class="col-sm-2" style="padding-left:0; margin-right:auto;">
+        <h2 style="margin:0; font-weight:700;">
+          <a href="/" style="text-decoration:none; color:#d1dbe4;">
+            Swift Cart
+          </a>
+        </h2>
+      </div>
+
+      <div class="navbar-search smallsearch col-sm-7 col-xs-11">
+        <form action="/search" method="get">
+          <div class="row">
+            <input class="navbar-input col-xs-11"
+                   type="search"
+                   name="query"
+                   placeholder="Search for Products, Brands and more">
+            <button class="navbar-button col-xs-1" type="submit">
+              <svg width="15" height="15">
+                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="cart1 largenav col-sm-3">
+        <a class="cart-button" href="/cart">
+          <svg class="cart-svg" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+          </svg>
+          Cart <span class="item-number">{{ product_count_in_cart }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+{% block content %}
+<div class="product-grid">
+  {%if products%}
+  <h2 class="section-heading">{{word}}</h2>
+  
+  <div class="container">
+    <div class="row">
+      {% for p in products %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+          <img src="{% static p.product_image.url %}" class="product-image" alt="{{ p.name }}">
+          <div class="product-body">
+            <h3 class="product-title">{{ p.name }}</h3>
+            <p class="product-description">{{ p.description|truncatechars:100 }}</p>
+            <div class="product-price">₹ {{ p.price }}</div>
+            <a href="{% url 'add-to-cart' p.id %}" class="add-to-cart-btn">
+              Add to Cart
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <h3 class="section-heading">No Products Found</h3>
+  {%endif%}
+</div>
+{% endblock content %}
+
+<!-- FOOTER -->
+{% include "ecom/footer.html" %}
+{% load static %}
+<script>
+$(document).ready(function(){
+  // Existing script functions
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "70%";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.body.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+});
+</script>
+
+</body>
+</html>

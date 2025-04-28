@@ -1,0 +1,125 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block content %}
+<head>
+  <title>SwiftCart</title>
+</head>
+<style media="screen">
+  .product-grid {
+    padding: 40px 20px;
+    background: linear-gradient(to right, #dad0d0, #1565c0);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-image {
+    height: 250px;
+    object-fit: contain;
+    padding: 20px;
+    background: #f8f9fa;
+  }
+
+  .product-body {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .product-title {
+    font-weight: 600;
+    color: #2a5c8a;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .product-price {
+    font-size: 1.4rem;
+    color: #476f95;
+    font-weight: 700;
+    margin: 15px 0;
+  }
+
+  .product-description {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .add-to-cart-btn {
+    background: #2a5c8a;
+    color: white !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-decoration: none !important;
+    display: block;
+  }
+
+  .add-to-cart-btn:hover {
+    background: #1a4468;
+    transform: scale(1.05);
+  }
+
+  .section-heading {
+    color: #fff;
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+</style>
+
+<div class="product-grid">
+  {%if products%}
+  <h2 class="section-heading">{{word}}</h2>
+  
+  <div class="container">
+    <div class="row">
+      {% for p in products %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="product-card">
+          <img src="{% static p.product_image.url %}" class="product-image" alt="{{ p.name }}">
+          <div class="product-body">
+            <h3 class="product-title">{{ p.name }}</h3>
+            <p class="product-description">{{ p.description|truncatechars:100 }}</p>
+            <div class="product-price">₹ {{ p.price }}</div>
+            <a href="{% url 'add-to-cart' p.id %}" class="add-to-cart-btn">
+              Add to Cart
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <h3 class="section-heading">No Products Found</h3>
+  {%endif%}
+</div>
+
+<script>
+  {%if messages %}
+    {%for message in messages%}
+      alert('{{message}}');
+    {%endfor%}
+  {%endif%}
+</script>
+
+{% endblock content %}
